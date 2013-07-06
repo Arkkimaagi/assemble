@@ -334,7 +334,7 @@ module.exports = function(grunt) {
               var toDirname = path.normalize(path.dirname(to));
               var toBasename = path.basename(to);
               var relativePath = path.relative(fromDirname, toDirname);
-              pageObj.url = path.join(relativePath, toBasename).replace(/\\/g, "/");
+              pageObj.url = urlNormalize(path.join(relativePath, toBasename));
               pageObj.url_stripped = pageObj.url.replace(/index.html$/i,'');
             }
 
