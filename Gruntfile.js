@@ -46,39 +46,106 @@ module.exports = function(grunt) {
     assemble: {
       options: {
         flatten: true,
+        layout: 'layout.hbs',
+        layoutdir: 'test/templates/layouts',
         assets: 'test/actual/assets'
       },
-      compact: {
+      paths: {
         options: {
-          partials: 'test/files/partials/*.hbs',
-          layout: 'test/files/layout.hbs'
-        },
-        src:  ['test/files/dates.hbs', 'test/files/page.hbs'],
-        dest: 'test/actual/'
-      },
-      files_object: {
-        options: {
-          layout: 'test/files/layout.hbs',
-          data: 'test/yaml/data/**/*.*'
+          partials: 'test/templates/partials/*.hbs',
+          layout: 'paths-example.hbs',
+          data: ['test/data/*.yml']
         },
         files: {
-          'test/actual/yaml/': ['test/yaml/*.hbs']
+          'test/actual/paths/': ['test/templates/pages/*.hbs']
+        }
+      },
+      single_page: {
+        options: {
+          partials: 'test/templates/partials/*.hbs',
+          layout: 'layout.hbs'
+        },
+        files: {
+          'test/actual/page.html': ['test/templates/pages/page.hbs']
+        }
+      },
+      yaml_front_matter: {
+        options: {
+          layout: 'layout.hbs',
+          data: 'test/yaml/data/*.{json,yml}'
+        },
+        files: {
+          'test/actual/yfm/': ['test/templates/pages/yfm/*.hbs']
         }
       },
       multi: {
         options: {
-          layout: 'test/files/layout.hbs'
+          layout: 'layout.hbs',
+          data: ['test/data/*.json']
         },
         files: {
-          'test/actual/multi/dest1/': ['test/files/**/*.hbs', '!test/files/layout*.*'],
-          'test/actual/multi/dest2/': ['test/files/**/*.{markd,md,markdown}'],
-          'test/actual/multi/dest2/sub-dest/': ['test/files/**/*.hbs', '!test/files/layout*.*']
+          'test/actual/multi/dest1/': ['test/templates/pages/*.hbs'],
+          'test/actual/multi/dest2/': ['test/templates/pages/*.md'],
+          'test/actual/multi/dest2/sub-dest/': ['test/templates/pages/*.hbs']
+        }
+      },
+      markdown: {
+        options: {
+          layout: 'default.md.hbs',
+          data: ['test/data/*.json'],
+          ext: '.md'
+        },
+        files: {
+          'test/actual/multi/dest1/': ['test/templates/pages/*.hbs']
+        }
+      },
+      assets_one: {
+        options: {
+          assets: 'test/actual/public',
+          assets_one: true
+        },
+        files: {
+          'test/actual/assets-public-folder.html': ['test/templates/pages/assets.hbs']
+        }
+      },
+      assets_two: {
+        options: {
+          assets: 'test/actual',
+          assets_two: true
+        },
+        files: {
+          'test/actual/assets-same-folder.html': ['test/templates/pages/assets.hbs']
+        }
+      },
+      assets_three: {
+        options: {
+          assets: '.',
+          assets_three: true
+        },
+        files: {
+          'test/actual/assets-root.html': ['test/templates/pages/assets.hbs']
+        }
+      },
+      custom_helpers: {
+        options: {
+          helpers: ['test/helpers/**/*.js'],
+          version: '<%= pkg.version %>'
+        },
+        files: {
+          'test/actual/custom-helpers.html': ['test/templates/pages/helpers/custom-helpers.hbs']
         }
       }
+    },
+
+    // Before assembling new files, removed previously
+    // created files.
+    clean: {
+      tests: ['test/actual/**/*.{html,md}']
     }
   });
 
   // Load npm plugins to provide necessary tasks.
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-mocha-test');
 
@@ -86,14 +153,8 @@ module.exports = function(grunt) {
   grunt.loadTasks('tasks');
 
   // Default task.
-  grunt.registerTask('default', [
-    'jshint',
-    'assemble'
-  ]);
+  grunt.registerTask('default', ['jshint', 'clean', 'assemble']);
 
   // Tests to be run.
-  grunt.registerTask('test', [
-    'jshint',
-    'mochaTest'
-  ]);
+  grunt.registerTask('test', ['default', 'mochaTest']);
 };

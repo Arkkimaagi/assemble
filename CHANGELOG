@@ -1,3 +1,20 @@
+v0.4.0:
+  date: "2013-06-20"
+  changes:
+    - New option "layoutdir" for defining the directory to be used for layouts. If layoutdir is defined, then layouts may be defined using only the name of the layout.
+v0.3.81:
+  date: "2013-06-10"
+  changes:
+    - Adding additional ways to load custom helpers. Now it's possible to use a glob pattern that points to a list of scripts with helpers to load.
+    - Adding examples and tests on how to use the new custom helper loading methods.
+v0.3.80:
+  date: "2013-06-01"
+  changes:
+    - Fixing bug with null value in engine
+v0.3.77:
+  date: "2013-05-07"
+  changes:
+    - Updated README with info about assemble methods
 v0.3.74:
   date: "2013-04-28"
   changes:
@@ -50,13 +67,3 @@ v0.3.14:
   date: "2013-03-18"
   changes:
     - new relative helper for resolving relative paths
-v0.3.13:
-  date: "2013-03-16"
-  changes:
-    - new dashify and formatPhone helpers
-v0.1.0:
-  date: "Stardate 45047.2"
-  changes:
-    - Visited the uninhabited El-Adrel system.
-    - Returned home.
-    - Started assemble.
