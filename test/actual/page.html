@@ -1,12 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
     <title>Partials Test</title>
-    <link href="assets/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
   </head>
-  <body>
+  <body style="padding-top: 60px;">
+
     <div class="container">
+      <div class="categories">
+        <h2>Categories</h2>
+        <ul>
+        
+          <li></li>
+        
+        </ul>
+      </div>
       
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
@@ -26,38 +35,50 @@
     </div>
 
     <div class="container" style="display: none">
-      <h3>Debug Info</h3>
-
-      ``` 
-{
-  filename: 'page',
-  basename: 'page',
-  src: 'test\\files\\page.hbs',
-  dest: 'test\\actual\\page.html',
-  assets: 'assets',
-  ext: '.html',
-  page: [Function],
-  data: 
-   { title: 'Partials Test',
-     links: [ './index', 'dest/context', 'dest/basic', 'dest/markdown' ] 
-} }
-```
-
+      <h2>Content</h2>
       <ul>
-      
-        <!--
-          currentPage.dest: test\actual\page.html
-          this.dest: test\actual\dates.html
-        -->
-        <li><a href="dates.html">dates</a></li>
-      
-        <!--
-          currentPage.dest: test\actual\page.html
-          this.dest: test\actual\page.html
-        -->
         <li><a href="page.html">page</a></li>
-      
+        
       </ul>
     </div>
+
+    <div class="container" style="display: none">
+      <h2>Debug Info</h2>
+      <pre class="json">
+{ dirname: 'test/actual',
+  filename: 'page.html',
+  pageName: 'page.html',
+  pagename: 'page.html',
+  basename: 'page',
+  src: 'test/templates/pages/page.hbs',
+  dest: 'test/actual/page.html',
+  assets: 'assets',
+  ext: '.html',
+  extname: '.html',
+  page: 
+   { [Function]
+     [length]: 2,
+     [name]: '',
+     [arguments]: null,
+     [caller]: null,
+     [prototype]: { [constructor]: [Circular] } },
+  data: 
+   { title: 'Partials Test',
+     links: 
+      [ './index',
+        'dest/context',
+        'dest/basic',
+        'dest/markdown',
+        [length]: 4 ] },
+  title: 'Partials Test',
+  links: 
+   [ './index',
+     'dest/context',
+     'dest/basic',
+     'dest/markdown',
+     [length]: 4 ] }
+</pre>
+    </div>
+
   </body>
 </html>
