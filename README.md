@@ -1,10 +1,8 @@
-# [Assemble v0.4.1](http://assemble.io) [![Build Status](https://travis-ci.org/assemble/assemble.png)](https://travis-ci.org/assemble/assemble)
+# [Assemble v0.4.0](http://assemble.io) [![Build Status](https://travis-ci.org/assemble/assemble.png)](https://travis-ci.org/assemble/assemble)
 
 > Assemble makes it dead simple to build modular sites and components from reusable templates and data.
 
 We love contributors, pull requests are welcome and followers are appreciated.
-
-### Go to [Assemble's documentation](http://assemble.io) →
 
 ## Examples
 

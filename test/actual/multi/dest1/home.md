@@ -33,7 +33,6 @@ Properties from "example.json" and "example.hbs" should be on the page object.
 ``` json
 { title: 'YFM title',
   description: 'YFM description',
-  _page: 'all',
   dirname: 'test/actual/multi/dest1',
   filename: 'home.md',
   pageName: 'home.md',
@@ -56,15 +55,15 @@ Properties from "example.json" and "example.hbs" should be on the page object.
 
 
 ### "{{#each pages}}" Links
-[example](example.md)
 [alert](alert.md)
+[assets](assets.md)
 [collections-categories](collections-categories.md)
 [collections-categories2](collections-categories2.md)
 [collections-tags-2](collections-tags-2.md)
 [collections-tags](collections-tags.md)
 [complex](complex.md)
 [debug-helpers](debug-helpers.md)
-[assets](assets.md)
+[example](example.md)
 [gist-helper](gist-helper.md)
 [helpers](helpers.md)
 [home](home.md)
@@ -78,17 +77,6 @@ Properties from "example.json" and "example.hbs" should be on the page object.
 
 ### {{#each pages}} "this" context
 
-#### example.md
-this.assets:   ../../assets
-this.dest:     test/actual/multi/dest1/example.md
-this.absolute:
-this.dirname:  test/actual/multi/dest1
-this.filename: example.md
-this.pagename: example.md
-this.basename: example
-this.extname:  .md
-this.ext:      .md
-
 #### alert.md
 this.assets:   ../../assets
 this.dest:     test/actual/multi/dest1/alert.md
@@ -97,6 +85,17 @@ this.dirname:  test/actual/multi/dest1
 this.filename: alert.md
 this.pagename: alert.md
 this.basename: alert
+this.extname:  .md
+this.ext:      .md
+
+#### assets.md
+this.assets:   ../../assets
+this.dest:     test/actual/multi/dest1/assets.md
+this.absolute:
+this.dirname:  test/actual/multi/dest1
+this.filename: assets.md
+this.pagename: assets.md
+this.basename: assets
 this.extname:  .md
 this.ext:      .md
 
@@ -166,14 +165,14 @@ this.basename: debug-helpers
 this.extname:  .md
 this.ext:      .md
 
-#### assets.md
+#### example.md
 this.assets:   ../../assets
-this.dest:     test/actual/multi/dest1/assets.md
+this.dest:     test/actual/multi/dest1/example.md
 this.absolute:
 this.dirname:  test/actual/multi/dest1
-this.filename: assets.md
-this.pagename: assets.md
-this.basename: assets
+this.filename: example.md
+this.pagename: example.md
+this.basename: example
 this.extname:  .md
 this.ext:      .md
 
